@@ -1,8 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Puppet-Master\Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Puppet-Master\Visual\Widget.cs">
     <Files>
       <File FileName="Puppet-Master\Program.cs" Line="1" Column="1" />
+      <File FileName="Puppet-Master\Util\Interpolation.cs" Line="7" Column="55" />
+      <File FileName="Puppet-Master\Units\MPoint.cs" Line="1" Column="1" />
+      <File FileName="Puppet-Master\Units\MPath.cs" Line="21" Column="5" />
+      <File FileName="Puppet-Master\Visual\NodeWindow.cs" Line="13" Column="16" />
+      <File FileName="Puppet-Master\MainWindow.cs" Line="10" Column="43" />
+      <File FileName="Puppet-Master\gtk-gui\generated.cs" Line="4" Column="23" />
+      <File FileName="Puppet-Master\Visual\Widget.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

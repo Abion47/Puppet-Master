@@ -3,9 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{11191B2F-B489-4BAC-98C8-708FDB0F1795}</ProjectGuid>
+    <ProjectGuid>{05B6B3C5-6E43-4A33-B37D-9082B78B1663}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PuppetMaster</RootNamespace>
     <AssemblyName>Puppet-Master</AssemblyName>
@@ -51,6 +49,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="Mono.Cairo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
