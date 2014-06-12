@@ -8,6 +8,7 @@ namespace PuppetMaster
 	{
 		public Colls.List<MPoint> Points { get; private set; }
 		public double T { get; set; }
+		public bool Closed { get; set; }
 
 		private PathType _pathType;
 		public PathType PathType 
@@ -54,6 +55,9 @@ namespace PuppetMaster
 				context.LineTo(Points[i].GetPoint(T));
 			}
 
+			if(Closed)
+				context.ClosePath();
+
 			return true;
 		}
 
@@ -61,12 +65,15 @@ namespace PuppetMaster
 		{
 			context.MoveTo(Points[0].GetPoint(T));
 
-			for (int i = 0; i < Points.Count; i += 4) 
+			for (int i = 1; i < Points.Count; i += 3) 
 			{
-				context.CurveTo(Points[i + 1].GetPoint(T), 
-					Points[i + 2].GetPoint(T), 
-					Points[i + 3].GetPoint(T));
+				context.CurveTo(Points[i].GetPoint(T), 
+					Points[i + 1].GetPoint(T), 
+					Points[i + 2].GetPoint(T));
 			}
+
+			if(Closed)
+				context.ClosePath();
 
 			return true;
 		}

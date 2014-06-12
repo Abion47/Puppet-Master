@@ -39,7 +39,8 @@ namespace PuppetMaster
 
 					path.Paint(context);
 					context.SetSourceRGB(0, 0, 0);
-					context.Fill();
+					context.LineWidth = 5;
+					context.Stroke();
 				}
 			}
 

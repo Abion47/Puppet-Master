@@ -76,5 +76,9 @@
     <Folder Include="Pieces\Units\" />
     <Folder Include="Util\" />
     <Folder Include="Managers\" />
+    <Folder Include=".Test Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".Test Files\TestSvg.txt" />
   </ItemGroup>
 </Project>
