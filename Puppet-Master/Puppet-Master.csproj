@@ -66,6 +66,8 @@
     <Compile Include="Pieces\Units\MPoint.cs" />
     <Compile Include="Util\Interpolation.cs" />
     <Compile Include="Pieces\Units\MPath.cs" />
+    <Compile Include="Managers\PathManager.cs" />
+    <Compile Include="Managers\Managers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -73,5 +75,6 @@
     <Folder Include="Pieces\" />
     <Folder Include="Pieces\Units\" />
     <Folder Include="Util\" />
+    <Folder Include="Managers\" />
   </ItemGroup>
 </Project>

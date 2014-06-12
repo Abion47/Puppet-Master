@@ -7,11 +7,68 @@ namespace PuppetMaster
 	public class MPath
 	{
 		public Colls.List<MPoint> Points { get; private set; }
-		public PathType PathType { get; set; }
+		public double T { get; set; }
+
+		private PathType _pathType;
+		public PathType PathType 
+		{ 
+			get
+			{
+				return this._pathType;
+			}
+			set
+			{
+				this._pathType = value;
+				switch(_pathType) 
+				{
+					case PathType.None:
+						Paint = null;
+						break;
+					case PathType.Line:
+						Paint = PaintLine;
+						break;
+					case PathType.Curve:
+						Paint = PaintCurve;
+						break;
+				}
+			}
+		}
+
+		public delegate bool PaintMethod(Cairo.Context context);
+		public PaintMethod Paint;
 
 		public MPath()
 		{
 			Points = new Colls.List<MPoint>();
+		}
+
+		private bool PaintLine(Cairo.Context context)
+		{
+			if(Points.Count < 2)
+				return false;
+
+			context.MoveTo(Points[0].GetPoint(T));
+
+			for (int i = 1; i < Points.Count; i++) 
+			{
+				context.LineTo(Points[i].GetPoint(T));
+			}
+
+			return true;
+		}
+
+		private bool PaintCurve(Cairo.Context context)
+		{
+			context.MoveTo(Points[0].GetPoint(T));
+
+			for (int i = 0; i < Points.Count; i += 4) 
+			{
+				context.CurveTo(Points[i + 1].GetPoint(T), 
+					Points[i + 2].GetPoint(T), 
+					Points[i + 3].GetPoint(T));
+			}
+
+			return true;
 		}
 	}
 
@@ -19,8 +76,7 @@ namespace PuppetMaster
 	{
 		None,
 		Line,
-		Curve3,
-		Curve4
+		Curve
 	}
 }
 

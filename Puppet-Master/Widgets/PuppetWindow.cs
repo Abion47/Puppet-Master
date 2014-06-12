@@ -7,11 +7,11 @@ namespace PuppetMaster
 	[System.ComponentModel.ToolboxItem(true)]
 	public class PuppetWindow : Gtk.DrawingArea
 	{
-		public Colls.List<MPath> Paths { get; private set; }
+		public Colls.List<int> Paths { get; private set; }
 
 		public PuppetWindow()
 		{
-			Paths = new Colls.List<MPath>();
+			Paths = new Colls.List<int>();
 		}
 
 		protected override bool OnButtonPressEvent(Gdk.EventButton ev)
@@ -26,13 +26,21 @@ namespace PuppetMaster
 
 			using (Cairo.Context context = Gdk.CairoHelper.Create(ev.Window))
 			{
-				context.SetSourceRGB(1, 1, 1);
 				context.Rectangle(ev.Area.X, ev.Area.Y, ev.Area.Width, ev.Area.Height);
+				context.SetSourceRGB(1, 1, 1);
 				context.Fill();
 
-				context.SetSourceRGB(0, 0, 0);
-				context.Rectangle(ev.Area.Width / 2 - 50, ev.Area.Height / 2 - 50, 100, 100);
-				context.Fill();
+				foreach (int i in Paths) 
+				{
+					MPath path = Managers.PathManager.GetPath(i);
+
+					if(path == null)
+						continue;
+
+					path.Paint(context);
+					context.SetSourceRGB(0, 0, 0);
+					context.Fill();
+				}
 			}
 
 			return true;
